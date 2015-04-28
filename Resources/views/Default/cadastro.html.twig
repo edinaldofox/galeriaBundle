@@ -1,0 +1,45 @@
+{% extends "SistemaBundle::base.html.twig" %}
+
+{% block conteudo %}
+    {{ form_start(form) }}
+
+    <div class="form-group">
+        {{ form_label(form.nome) }}
+        {{ form_errors(form.nome) }}
+        {{ form_widget(form.nome) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.descricao) }}
+        {{ form_errors(form.descricao) }}
+        {{ form_widget(form.descricao) }}
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.imagens) }}
+        <ul class="list-unstyled area-imagens">
+            {% for imagem in form.imagens %}
+                <li
+                        id="elemento-upload-{{ (loop.index-1) }}"
+                        class="li-imagens-upload"
+                        rev="galeria_imagens_?_file"
+                        rel="galeria[imagens][?][file]">
+                    {{ form_widget(imagem.file) }}
+                </li>
+            {% endfor %}
+        </ul>
+        <button id="add-imagens" class="btn btn-success">Adicionar Imagem</button>
+        <button type="button" id="remove-upload-imagens" class="btn btn-danger">Remover Upload de imagem</button>
+    </div>
+
+    <div class="form-group">
+        {{ form_label(form.isAtivo) }}
+        {{ form_errors(form.isAtivo) }}
+        {{ form_widget(form.isAtivo) }}
+    </div>
+
+    {{ form_widget(form.save) }}
+    {{ form_widget(form.reset) }}
+
+    {{ form_end(form) }}
+{% endblock %}

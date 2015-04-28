@@ -1,0 +1,43 @@
+galeria_homepage:
+    path:     /sistema/galeria
+    defaults: { _controller: GaleriaBundle:Default:index }
+
+galeria_cadastro:
+    path:     /sistema/galeria/cadastro
+    defaults: { _controller: GaleriaBundle:Default:cadastro }
+    methods:  [GET]
+
+galeria_create:
+    path:     /sistema/galeria/create
+    defaults: { _controller: GaleriaBundle:Default:create }
+    methods:  [POST]
+
+galeria_create:
+    path:     /sistema/galeria/create
+    defaults: { _controller: GaleriaBundle:Default:create }
+    methods:  [POST]
+
+galeria_listagem:
+    path:     /sistema/galeria/listagem
+    defaults: { _controller: GaleriaBundle:Default:list }
+    methods:  [GET]
+
+galeria_editar:
+    path:     /sistema/galeria/editar/{galeria}
+    defaults: { _controller: GaleriaBundle:Default:editar }
+    methods:  [GET]
+
+galeria_edit:
+    path:     /sistema/galeria/editar
+    defaults: { _controller: GaleriaBundle:Default:edit }
+    methods:  [POST]
+
+galeria_deletar:
+    path:     /sistema/galeria/delete/{galeria}
+    defaults: { _controller: GaleriaBundle:Default:delete }
+    methods:  [GET]
+
+galeria_deletar_imagem:
+    path:     /sistema/galeria/delete-imagem
+    defaults: { _controller: GaleriaBundle:Default:deleteImagem }
+    methods:  [POST]

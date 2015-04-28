@@ -1,0 +1,9 @@
+services:
+#    galeria.example:
+#        class: GaleriaBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
+
+    galeria.form.type.empresa:
+        class: GaleriaBundle\Form\Type\GaleriaType
+        tags:
+            - { name: form.type, alias: galeria }

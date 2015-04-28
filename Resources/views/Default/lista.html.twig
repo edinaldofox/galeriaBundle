@@ -1,0 +1,37 @@
+{% extends "SistemaBundle::base.html.twig" %}
+
+ {% block conteudo %}
+     <div class="panel panel-default">
+         <div class="panel-heading">
+             Lista
+         </div>
+         <!-- /.panel-heading -->
+         <div class="panel-body">
+             <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                 <thead>
+                 <tr>
+                     <th>Id</th>
+                     <th>Nome</th>
+                     <th>Ações</th>
+                 </tr>
+                 </thead>
+                 <tbody>
+                     {% for galeria in galerias %}
+                         <tr class="odd gradeX">
+                             <td>#{{ galeria.id }}</td>
+                             <td>{{ galeria.nome }}</td>
+                             <td class="center">
+                                 <a href="{{ url("galeria_editar", {"galeria":galeria.id}) }}" class="btn btn-primary">Editar</a>
+                                 <a href="#{{ galeria.id }}" class="visualizar btn btn-info">Visualizar</a>
+                                 <a href="{{ url("galeria_deletar", {"galeria":galeria.id}) }}" class="visualizar btn btn-danger">Remover</a>
+                             </td>
+                         </tr>
+                     {% endfor %}
+
+                 </tbody>
+             </table>
+
+         </div>
+         <!-- .panel-body -->
+     </div>
+ {% endblock %}

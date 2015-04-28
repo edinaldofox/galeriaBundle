@@ -1,0 +1,73 @@
+{% extends "SistemaBundle::base.html.twig" %}
+
+ {% block conteudo %}
+     <div class="panel panel-default">
+         <div class="panel-heading">
+             Formulario
+         </div>
+         <!-- /.panel-heading -->
+         <div class="panel-body">
+
+             <h2>Imagens cadastradas</h2>
+             <div class="row">
+                 {% for imagem in galeria.imagens %}
+                     <div class="col-md-4">
+                         <form action="{{ url('galeria_deletar_imagem') }}" id="remover-imagem-{{ imagem.id }}" method="post" >
+                             <img src="{{ asset('bundles/galeria/imagens/') }}{{ imagem.nome }}" width="200" height="200" />
+                             <br><br>
+                             <button type="submit" class="btn btn-danger remov-imagens" rev="{{ imagem.id }}">Remover imagem</button>
+                             <input type="hidden" name="imagem" value="{{ imagem.id }}">
+                             <input type="hidden" name="galeria" value="{{ galeria.id }}">
+                         </form>
+                     </div>
+                 {% endfor %}
+             </div>
+             <br>
+
+             {{ form_start(form) }}
+
+             <div class="form-group">
+                 {{ form_label(form.nome) }}
+                 {{ form_errors(form.nome) }}
+                 {{ form_widget(form.nome) }}
+             </div>
+
+             <div class="form-group">
+                 {{ form_label(form.descricao) }}
+                 {{ form_errors(form.descricao) }}
+                 {{ form_widget(form.descricao) }}
+             </div>
+
+
+
+             <div class="form-group">
+                 <ul class="list-unstyled area-imagens">
+                     {% for imagem in form.imagens %}
+                         <li
+                                 id="elemento-upload-{{ (loop.index-1) }}"
+                                 class="li-imagens-upload"
+                                 rev="galeria_imagens_?_file"
+                                 rel="galeria[imagens][?][file]">
+                             {{ form_widget(imagem.file) }}
+                         </li>
+                     {% endfor %}
+                 </ul>
+                 <button id="add-imagens" class="btn btn-success">Adicionar Imagem</button>
+                 <button type="button" id="remove-upload-imagens" class="btn btn-danger">Remover Upload de imagem</button>
+             </div>
+
+             <div class="form-group">
+                 {{ form_label(form.isAtivo) }}
+                 {{ form_errors(form.isAtivo) }}
+                 {{ form_widget(form.isAtivo) }}
+             </div>
+
+
+             {{ form_widget(form.save) }}
+             {{ form_widget(form.reset) }}
+
+             {{ form_end(form) }}
+         </div>
+         <!-- .panel-body -->
+     </div>
+ {% endblock %}
