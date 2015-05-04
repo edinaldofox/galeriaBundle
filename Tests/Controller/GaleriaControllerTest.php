@@ -4,7 +4,7 @@ namespace GaleriaBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
-class DefaultControllerTest extends WebTestCase
+class GaleriaControllerTest extends WebTestCase
 {
     public function testIndex()
     {
