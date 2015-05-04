@@ -8,3 +8,5 @@ php:
   
 before_install:
   composer self-update
+  
+php composer.phar install
