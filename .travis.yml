@@ -10,8 +10,5 @@ php:
   - nightly
   
 before_script:
-  - rm -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
-  - composer install
-  - bin/composer install
-  - git config --global user.name travis-ci
-  - git config --global user.email travis@example.com
+    - wget http://getcomposer.org/composer.phar
+    - php composer.phar install
